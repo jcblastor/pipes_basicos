@@ -1,0 +1,72 @@
+<div>
+  <h1>Pipes Básicos</h1>
+  <p>Pipes incluídos en Angular - Usualmente en Common Module.</p>
+</div>
+
+<div class="grid">
+  <div class="col-4">
+    <p-card
+      header="uppercase"
+      [subheader]="nombreLower | uppercase"
+    >
+      {{ nombreLower | uppercase }}
+    </p-card>
+  </div>
+  <div class="col-4">
+    <p-card
+      header="lowercase"
+      [subheader]="nombreLower | lowercase"
+    >
+      {{ nombreLower | lowercase }}
+    </p-card>
+  </div>
+  <div class="col-4">
+    <p-card
+      header="titlecase"
+      [subheader]="nombreCompleto | titlecase"
+    >
+      {{ nombreCompleto | titlecase }}
+    </p-card>
+  </div>
+</div>
+
+<div>
+  <h1>Pipes Date | Fecha</h1>
+  <p>Pipe para mostrar fechas.</p>
+</div>
+
+<div class="grid">
+  <div class="col-6">
+    <p-card
+      header="Date"
+
+    >
+      <ul>
+        <li>Fecha</li>
+      </ul>
+    </p-card>
+  </div>
+
+  <div class="col-6">
+    <p-card
+      header="date"
+    >
+      <ul>
+        <li class="mt-1">{{ fecha }}</li>
+        <li class="mt-1">{{ fecha | date }}</li>
+        <li class="mt-1">{{ fecha | date:'short' }}</li>
+        <li class="mt-1">{{ fecha | date:'long' }}</li>
+        <li class="mt-1">{{ fecha | date:'dd/MMM/yyyy' }}</li>
+      </ul>
+      <hr/>
+      <ul>
+        <li class="mt-1">{{ fecha | date:'long':'GMT-2' }}</li>
+        <!-- date tiene 3 paremetro :fomrmato, GTM, idioma,
+          ingles poder defecto pero si necesitamos otro idioma
+          tenemos que importarlo en el appModule -->
+        <li class="mt-1">{{ fecha | date:'long':'':'en' }}</li>
+      </ul>
+    </p-card>
+  </div>
+
+</div>
