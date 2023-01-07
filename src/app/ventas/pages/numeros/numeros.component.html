@@ -1,1 +1,34 @@
-<p>numeros works!</p>
+<div class="text-loyaut">
+  <h1>DecimalPipe y Porcentaje</h1>
+  <p>Pipes incluidos en Agnular, usualmente en Common Mudule.</p>
+</div>
+
+<div class="grid">
+  <div class="col-4">
+    <p-card header="Ventas netas" subheader="del presente año">
+      <i class="pi pi-dollar"></i>
+      <!-- el argumento 1 significa todos los numeros enteros, 2-2 siginifica 2 decimales,
+      si en el numero no hay 2 decimales agrega ceros para completar, se puede por N cantidad
+      de decimales que necesitemos. -->
+      {{ ventasNetas | number:'1.2-2' }}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="Ventas Brutas" subheader="del presente año">
+      <ul>
+        <li>{{ (ventasNetas + 1000000 ) | currency }} <!-- por defecto usa el signo USD --></li>
+        <li>{{ (ventasNetas + 1000000 ) | currency:'Bs.' }}</li>
+        <li>{{ (ventasNetas + 1000000 ) | currency:'CAD':'symbol-narrow' }}</li> <!-- symbol-narrow, el simbolo de la moneda -->
+      </ul>
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="Ganancia porcentual" subheader="del presente año">
+      <ul>
+        <li>{{ porcentaje | percent:'1.2-2' }} </li>
+      </ul>
+    </p-card>
+  </div>
+</div>

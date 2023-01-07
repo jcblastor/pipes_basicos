@@ -1,1 +1,65 @@
-<p>no-comunes works!</p>
+<div class="text-loyaut">
+  <h1>Pipes no comunes</h1>
+  <p>Pipes incluidos en Agnular, usualmente en Common Mudule.</p>
+</div>
+
+<div class="grid">
+  <div class="col-6">
+    <p-fieldset legend="i18Select Pipe" [toggleable]="true">
+      <p>Saludos {{nombre}}, es un placer {{ genero | i18nSelect:palabrasQueSelecionaI18nPipe }} a nuestro evento.</p>
+      <hr/>
+      <small>Este pipe seleciona de un objeto, palabras que pueden asociarse a una variable y depende la variable seleciona una o la otra.</small>
+      <button pButton (click)="cambiarNombre()">Cambiar nombre</button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="i18Plural Pipe" [toggleable]="true">
+      <p>
+        Actualmente {{ clientes.length | i18nPlural:clientsMap }}.
+      </p>
+      <button pButton (click)="deleteClient()">Eliminar cliente</button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original:</b>
+      <pre>{{clientes}}</pre>
+      <b>slice:0:2</b>
+      <pre> {{ clientes | slice:0:2 }}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <li *ngFor="let item of persona | keyvalue">
+          <b>{{item.key}}</b>: {{item.value}}
+        </li>
+      </ul>
+      <small>El Pipe keyValue nos permite iterar sobre un objeto para poder acceder a sus key o value para mostrarlos</small>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      <pre>{{ heroes | json }}</pre>
+
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <small>El pipe Async trabaja solo con Observables o Promesas.</small>
+      <br>
+      <small>Internamente asyncPipe se subscribe al observable y accede a su valor.</small>
+      <pre>{{ miObservable | async }}</pre>
+      <hr/>
+      <pre>{{ valorPromesa | async }}</pre>
+
+
+
+    </p-fieldset>
+  </div>
+</div>
